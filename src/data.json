@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "Question" : "What is your favorite song?",
+    "Category": "music",
+    "bonus" : [
+          {
+             "bonusQuestion" : "Whose your favorite artist",
+             "name":"bonusMusic1"
+          },
+          {
+             "bonusQuestion" : "Whose your favorite genre",
+             "name":"bonusMusic2"
+          }
+       ]
+  },
+  {
+    "id": 2,
+    "Question": "What is your favorite food?",
+    "Category": "food",
+    "bonus" : [
+        {
+          "bonusQuestion" : "Whose your favorite restaurant",
+          "name":"bonusFood1"
+        },
+        {
+          "bonusQuestion" : "Whose your favorite dessert?",
+          "name":"bonusFood2"
+        }
+      ]
+  },
+  {
+    "id": 3,
+    "Question" : "What is your favorite game?",
+    "Category": "games",
+    "bonus" : [
+        {
+          "bonusQuestion" : "Whose your favorite console",
+          "name":"bonusGame1"
+        },
+        {
+          "bonusQuestion" : "Whose your favorite character?",
+          "name":"bonusGame2"
+        }
+      ]
+  }
+]
