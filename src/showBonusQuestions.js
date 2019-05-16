@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Data from './data.json';
 import { Form, Button, Input, Dropdown, Card } from 'semantic-ui-react';
+import { API_URL, API_KEY, CV } from './api';
 
 class ShowBQ extends Component {
     constructor(props){
@@ -13,7 +14,8 @@ class ShowBQ extends Component {
         bonusMusic2: '',
         bonusGame1: '',
         bonusGame2: '',
-        thankyou: false
+        thankyou: false,
+        endpoint: ''
       }
     }
 
@@ -36,9 +38,33 @@ class ShowBQ extends Component {
       })
 
     }
+
+    getLink = () => {
+      const url = `${API_URL}${API_KEY}${CV}&q=${this.props.option}`;
+      const random = Math.floor(Math.random()*10)
+      console.log("url: ", url);
+      console.log("random number: ", random);
+      fetch(url)
+      .then(result => result.json())
+      .then(result => {
+        this.setState({
+          endpoint: result.items[random].link
+        })
+
+        console.log("result: ", result);
+        console.log("result link: ", result.items[random].link);
+      })
+
+      console.log("this.state.endpoint: ", this.state.endpoint);
+      return <div>
+              <a style={{color: "white"}} href={this.state.endpoint} target = "_blank">Here's a link</a>
+              </div>
+    }
+
     onSubmit(e){
       e.preventDefault();
       this.setState({thankyou: true})
+      this.getLink();
     }
 
     render(){
@@ -68,8 +94,9 @@ class ShowBQ extends Component {
            <Button type="submit">Submit</Button>
            {this.state.thankyou ?
                   <div>
+                     <a target="_blank" href={this.state.endpoint}>Click Me</a>
                      <h1>Thank you very much {this.props.name} </h1>
-                     <h1>Enjoy your {this.props.option}</h1>
+                     <h1>Enjoy your {this.props.option}!</h1>
                   </div> : ""
           }
         </Form>
@@ -80,6 +107,17 @@ class ShowBQ extends Component {
 export default ShowBQ;
 
 //Form Try
+// return <a
+//             href={this.state.endpoint}
+//             target="_blank">
+//             click me
+//         </a>
+
+                     // <button
+                     //   onClick={this.state.getLink}>
+                     //   click me
+                     // </button>
+
 /*<Form onSubmit={this.onSubmit.bind(this)}>
           <header>Bonus Questions</header>
           <Form.Feild>

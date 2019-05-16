@@ -37,7 +37,7 @@ class SignUpForm extends Component {
   }
   render(){
     return(
-      <Card style={{backgroundColor: "white", margin: "auto", width:"50%", height:"1000px"}}>
+      <Card style={{backgroundColor: "black",color:"white", margin: "auto", width:"50%", height:"1000px"}}>
       <Form className = "questions" onSubmit={this.onSubmit.bind(this)}>
             <header>Answer this form</header>
             <Form.Field>
@@ -56,7 +56,7 @@ class SignUpForm extends Component {
                 name="food"
                 value={this.state.food}
                 onChange={this.onChange.bind(this)}
-                className="form-control" />
+                 />
             <br />
             </Form.Field>
             <Form.Field>

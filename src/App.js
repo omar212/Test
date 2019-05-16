@@ -3,7 +3,8 @@ import './App.css';
 import charles from './images/Charles.jpg';
 import movie from './images/Movie.mp4';
 import Data from './data.json';
-import SignUpForm from './SignUpForm.js'
+import SignUpForm from './SignUpForm.js';
+import Bar from './NavBar';
 
 
 class App extends Component {
@@ -24,8 +25,8 @@ class App extends Component {
   render(){
     return(
       <div className="App">
-          <header>Welcome to Charle's Website</header>
-
+          <header>Welcome to Charles's Website</header>
+          <Bar />
           <img alt="" src={charles} />
           <br />
           <video src={movie} controls />
